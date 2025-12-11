@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shivam — Professional Portfolio (Material)</title>
+<meta name="description" content="Shivam Subhash Devre — B.E. Electrical Portfolio">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ───────── Material Design Theme ───────── */
+
+:root {
+  --bg: #f4f6f9;                
+  --surface: #ffffff;           
+  --text-main: #1a1a1a;         
+  --text-muted: #555;           
+  --primary: #2962ff;           
+  --primary-light: #538dff;     
+  --accent: #00bcd4;            
+  --radius: 12px;
+  --shadow-1: 0 2px 6px rgba(0,0,0,0.12);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.18);
+  --shadow-3: 0 6px 18px rgba(0,0,0,0.20);
+  --maxw: 1100px;
+}
+
+* { box-sizing: border-box }
+body {
+  margin: 0;
+  font-family: 'Roboto', system-ui, Arial;
+  background: var(--bg);
+  color: var(--text-main);
+  padding: 28px 12px;
+}
+
+/* Wrapper */
+.wrap { max-width: var(--maxw); margin: 0 auto }
+
+/* ───────── Material Tabs Navigation ───────── */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+}
+
+.nav a {
+  padding: 10px 16px;
+  font-weight: 500;
+  color: var(--primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.nav a.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.nav a:hover {
+  background: var(--primary-light);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Ripple Effect */
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  transform: scale(1);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.nav a:active::after {
+  transform: scale(20);
+  opacity: 0.4;
+  transition: 0s;
+}
+
+/* ───────── Hero Section ───────── */
+
+.hero {
+  padding: 46px 20px;
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 14px auto;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* ───────── Cards Layout ───────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 880px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+.card {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-4px);
+}
+
+/* Headings */
+h2 {
+  margin: 4px 0 12px 0;
+  font-size: 22px;
+  color: var(--primary);
+}
+h3 {
+  margin: 6px 0;
+  font-size: 18px;
+  color: #222;
+}
+
+/* Accent underline Material indicator */
+.accent-line {
+  height: 4px;
+  width: 120px;
+  border-radius: 4px;
+  background: var(--primary);
+  margin-bottom: 12px;
+}
+
+/* Avatar */
+.media { display: flex; gap: 18px; flex-wrap: wrap; align-items: center }
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  object-fit: cover;
+  box-shadow: var(--shadow-1);
+}
+
+/* Pills */
+.pill {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 50px;
+  background: #e3f2fd;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Highlight box */
+.box {
+  background: #e8f0ff;
+  border-left: 4px solid var(--primary);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+p, li { color: var(--text-muted); line-height: 1.55 }
+ul { margin-top: 8px; }
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 28px;
+  color: var(--text-muted);
+}
+
+/* Keyboard focus */
+a:focus, button:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a class="primary" data-page="about">About</a>
+    <a data-page="education">Education</a>
+    <a data-page="projects">Projects</a>
+    <a data-page="hobbies">Hobbies</a>
+    <a data-page="skills">Skills</a>
+    <a data-page="achievements">Achievements</a>
+    <a data-page="contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Shivam — B.E. (Electrical)</h1>
+    <p>Practical engineering and operations — four years of independent leadership running a family business. Core strengths in process discipline, circuit fundamentals and problem solving.</p>
+  </header>
+
+  <!-- Main Grid -->
+  <main>
+    <div class="grid">
+
+      <!-- About -->
+      <section class="card">
+        <h2>About — Professional Summary</h2>
+        <div class="accent-line"></div>
+
+        <div class="media">
+          <div class="avatar"></div>
+
+          <div>
+            <p><strong>Shivam Subhash Devre</strong> — Electrical Engineering undergraduate at Sanjivani College. Managed family solar & flour mill business: procurement, inventory, billing, scheduling, operations and maintenance.</p>
+
+            <div class="box">
+              <strong>Core strengths</strong>
+              <ul>
+                <li>Operations & vendor coordination</li>
+                <li>Circuit analysis and math</li>
+                <li>Structured problem solving</li>
+                <li>AI & prompt engineering</li>
+              </ul>
+            </div>
+
+            <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap">
+              <span class="pill">Operations</span>
+              <span class="pill">Circuit Theory</span>
+              <span class="pill">Mathematics</span>
+              <span class="pill">Management</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="card">
+        <h2>Education</h2>
+        <div class="accent-line"></div>
+
+        <h3>Sanjivani College of Engineering — B.E. (Electrical)</h3>
+        <p>Lab-focused curriculum: circuits, power systems, control systems.</p>
+
+        <div class="box">
+          <strong>Key Subjects</strong>
+          <ul>
+            <li>Circuit Theory</li>
+            <li>Power Systems</li>
+            <li>Control Systems</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top:14px">Bharat Ratna Mother Teresa English School</h3>
+        <p>Grades 5–10. Strong foundation in mathematics and logic.</p>
+
+        <div class="box">
+          <strong>Academic Highlights</strong>
+          <ul>
+            <li>Numerical reasoning</li>
+            <li>Discipline & consistency</li>
+            <li>Active academic participation</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="card">
+        <h2>Projects & Practical Work</h2>
+        <div class="accent-line"></div>
+
+        <h3>Flour Mill — End-to-End Operations</h3>
+        <p>Hands-on operations: scheduling, procurement, inventory and repair coordination.</p>
+
+        <div class="box">
+          <strong>Operational improvements</strong>
+          <ul>
+            <li>Reduced raw material waste</li>
+            <li>Improved billing accuracy</li>
+            <li>Preventive maintenance planning</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top:12px">Invoice & Billing Tool</h3>
+        <p>Offline-first HTML/CSS/JS invoicing tool with printable format.</p>
+
+        <h3 style="margin-top:12px">Engineering Utilities (Python)</h3>
+        <p>Python scripts for electrical calculations (impedance, PF correction).</p>
+      </section>
+
+      <!-- Hobbies -->
+      <section class="card">
+        <h2>Hobbies & Interests</h2>
+        <div class="accent-line"></div>
+
+        <h3>Cricket</h3>
+        <p>Teamwork, discipline and quick decision-making.</p>
+
+        <h3>AI & Prompt Engineering</h3>
+        <p>Experimenting with LLMs to create systems, workflows, and documentation.</p>
+
+        <div class="box">
+          <strong>Achievement</strong>
+          <p>Winner — House captain of the year.</p>
+        </div>
+
+        <h3>Mathematics & Puzzles</h3>
+        <p>Improves analytical and numerical speed.</p>
+      </section>
+
+      <!-- Skills -->
+      <section class="card">
+        <h2>Skills</h2>
+        <div class="accent-line"></div>
+
+        <h3>Technical</h3>
+        <ul>
+          <li>Circuit analysis & troubleshooting</li>
+          <li>Applied mathematics</li>
+          <li>Basic Web Dev (HTML/CSS/JS)</li>
+          <li>Intro to CAD & simulation</li>
+        </ul>
+
+        <h3 style="margin-top:10px">Professional</h3>
+        <ul>
+          <li>Operations & procurement</li>
+          <li>Process documentation (SOPs)</li>
+          <li>Team & vendor coordination</li>
+          <li>AI Prompt engineering</li>
+        </ul>
+      </section>
+
+      <!-- Achievements -->
+      <section class="card">
+        <h2>Achievements</h2>
+        <div class="accent-line"></div>
+
+        <div class="box">
+          <ul>
+            <li>Top performer in electrical subjects</li>
+            <li>Winner — House captain of the year</li>
+            <li>Recognized for operational improvements</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="card">
+        <h2>Contact</h2>
+        <div class="accent-line"></div>
+
+        <p>Open to internships and field engineering roles.</p>
+
+        <div class="box">
